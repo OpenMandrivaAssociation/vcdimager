@@ -14,7 +14,6 @@ License:	GPL
 Group:          Video
 Source:         http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%name-%version.tar.bz2
 URL:            http://www.vcdimager.org
-BuildRoot:      %{_tmppath}/%{name}-buildroot
 BuildRequires:  libxml2-devel
 BuildRequires:  libcdio-devel >= %cdiover
 BuildRequires:  popt-devel

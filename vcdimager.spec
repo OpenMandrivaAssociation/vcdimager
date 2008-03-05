@@ -1,4 +1,3 @@
-%define release %mkrel 5
 %define version 0.7.23
 %define name	vcdimager
 
@@ -8,7 +7,7 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 6
 Summary:	VideoCD (pre-)mastering and ripping tool
 License:	GPL
 Group:          Video

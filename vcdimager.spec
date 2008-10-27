@@ -7,7 +7,7 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 7
+Release:	%mkrel 8
 Summary:	VideoCD (pre-)mastering and ripping tool
 License:	GPL
 Group:          Video

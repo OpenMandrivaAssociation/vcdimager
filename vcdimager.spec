@@ -7,17 +7,17 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 9
+Release:	%mkrel 10
 Summary:	VideoCD (pre-)mastering and ripping tool
 License:	GPL
-Group:          Video
-Source:         http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%name-%version.tar.bz2
-URL:            http://www.vcdimager.org
-BuildRoot:      %{_tmppath}/%{name}-buildroot
-BuildRequires:  libxml2-devel
-BuildRequires:  libcdio-devel >= %cdiover
-BuildRequires:  popt-devel
-BuildRequires:  automake1.8
+Group:		Video
+Source:		http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%name-%version.tar.bz2
+URL:		http://www.vcdimager.org
+BuildRoot:	%{_tmppath}/%{name}-buildroot
+BuildRequires:	libxml2-devel
+BuildRequires:	libcdio-devel >= %cdiover
+BuildRequires:	popt-devel
+BuildRequires:	automake1.8
 
 %description 
 VCDImager allows you to create VideoCD BIN/CUE CD images from mpeg
@@ -66,7 +66,6 @@ link statically to %name.
 
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 
 %setup -q 
 
@@ -75,11 +74,11 @@ rm -rf $RPM_BUILD_ROOT
 %make
 
 %install
-rm -rf "$RPM_BUILD_ROOT"
+rm -rf %{buildroot}
 %makeinstall_std
  
 %clean
-rm -rf "$RPM_BUILD_ROOT"
+rm -rf %{buildroot}
 
 %post
 %_install_info vcdimager.info
@@ -87,13 +86,6 @@ rm -rf "$RPM_BUILD_ROOT"
 %preun
 %_remove_install_info vcdimager.info
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
 
 
 %files
@@ -123,5 +115,3 @@ rm -rf "$RPM_BUILD_ROOT"
 %files -n %libname-static-devel
 %defattr(-,root,root)
 %{_libdir}/lib*.a
-
-

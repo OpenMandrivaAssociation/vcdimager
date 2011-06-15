@@ -3,6 +3,8 @@
 
 %define major 0
 %define libname %mklibname vcd %{major}
+%define develname %mklibname -d vcd
+%define staticname %mklibname -s -d vcd
 %define cdiover 0.72
 
 Name:		%{name}
@@ -43,24 +45,26 @@ VCDRip, which comes with VCDImager, does the reverse operation. That
 is, ripping mpeg streams from images (and already burned VideoCDs)
 and showing some information about the VideoCD.
 
-%package -n %{libname}-devel
+%package -n %{develname}
 Summary: Devel files from %name
 Group: Development/C
 Requires: %{libname} = %version
 Requires: libcdio-devel >= %cdiover
 Provides: libvcd-devel = %version-%release 
+Obsoletes: %{mklibname -d vcd 0}
 
  
-%description -n %{libname}-devel
+%description -n %{develname}
 This is the libraries, include files and other resources you can use
 to incorporate %name into applications.
 
-%package -n %libname-static-devel 
+%package -n %staticname
 Summary: Static Library for developing applications with %name
 Group: Development/C
-Requires: %libname-devel = %version
+Requires: %develname = %version
+Obsoletes: %{mklibname -s -d vcd 0}
 
-%description -n %libname-static-devel
+%description -n %staticname
 This contains the static library of %name needed for building apps that
 link statically to %name.
 
@@ -102,9 +106,9 @@ rm -rf %{buildroot}
 %{_mandir}/man1/*
 %files -n %{libname}
 %defattr (- ,root,root)
-%_libdir/*.so.*
+%_libdir/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %develname
 %defattr(-, root, root)
 %doc ChangeLog AUTHORS TODO
 %_includedir/libvcd
@@ -112,6 +116,6 @@ rm -rf %{buildroot}
 %_libdir/*.la
 %_libdir/pkgconfig/*.pc
 
-%files -n %libname-static-devel
+%files -n %staticname
 %defattr(-,root,root)
 %{_libdir}/lib*.a

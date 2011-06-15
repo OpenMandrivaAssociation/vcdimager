@@ -1,4 +1,4 @@
-%define version 0.7.23
+%define version 0.7.24
 %define name	vcdimager
 
 %define major 0
@@ -7,11 +7,11 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 11
+Release:	%mkrel 1
 Summary:	VideoCD (pre-)mastering and ripping tool
 License:	GPL
 Group:		Video
-Source:		http://www.vcdimager.org/pub/vcdimager/vcdimager-0.7/%name-%version.tar.bz2
+Source:		ftp://ftp.gnu.org/gnu/vcdimager/%name-%version.tar.gz
 URL:		http://www.vcdimager.org
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libxml2-devel

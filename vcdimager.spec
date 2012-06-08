@@ -1,14 +1,11 @@
-%define version 0.7.24
-%define name	vcdimager
-
 %define major 0
 %define libname %mklibname vcd %{major}
 %define develname %mklibname -d vcd
 %define staticname %mklibname -s -d vcd
 %define cdiover 0.72
 
-Name:		%{name}
-Version:	%{version}
+Name:		vcdimager
+Version:	0.7.24
 Release:	%mkrel 2
 Summary:	VideoCD (pre-)mastering and ripping tool
 License:	GPL
@@ -80,17 +77,11 @@ link statically to %name.
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+# Libtool is harmful
+rm -f %buildroot%_libdir/*.la
  
 %clean
 rm -rf %{buildroot}
-
-%post
-%_install_info vcdimager.info
-
-%preun
-%_remove_install_info vcdimager.info
-
-
 
 %files
 %defattr(-, root, root)
@@ -104,6 +95,7 @@ rm -rf %{buildroot}
 %{_bindir}/cdxa2mpeg
 %{_infodir}/*
 %{_mandir}/man1/*
+
 %files -n %{libname}
 %defattr (- ,root,root)
 %_libdir/*.so.%{major}*
@@ -113,7 +105,6 @@ rm -rf %{buildroot}
 %doc ChangeLog AUTHORS TODO
 %_includedir/libvcd
 %_libdir/*.so
-%_libdir/*.la
 %_libdir/pkgconfig/*.pc
 
 %files -n %staticname

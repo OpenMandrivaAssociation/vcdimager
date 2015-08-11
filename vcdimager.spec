@@ -2,6 +2,7 @@
 %define libname %mklibname vcd %{major}
 %define develname %mklibname -d vcd
 %define staticname %mklibname -s -d vcd
+%define _disable_rebuild_configure 1
 
 Name:		vcdimager
 Version:	0.7.24

@@ -6,13 +6,12 @@
 %define _disable_lto 1
 
 Name:		vcdimager
-Version:	0.7.24
-Release:	17
+Version:	2.0.1
+Release:	1
 Summary:	VideoCD (pre-)mastering and ripping tool
 License:	GPL
 Group:		Video
 Source0:	ftp://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
-Patch0:		vcdimager-0.7.24-cdio-API-changes.patch
 URL:		http://www.vcdimager.org
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libcdio)
@@ -65,7 +64,6 @@ link statically to %{name}.
 
 %prep
 %setup -q
-%apply_patches
 
 %build
 %configure --enable-static --enable-maintainer-mode

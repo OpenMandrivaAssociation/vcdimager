@@ -7,7 +7,7 @@
 
 Name:		vcdimager
 Version:	2.0.1
-Release:	1
+Release:	2
 Summary:	VideoCD (pre-)mastering and ripping tool
 License:	GPL
 Group:		Video

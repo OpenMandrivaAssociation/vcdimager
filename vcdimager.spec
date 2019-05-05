@@ -7,7 +7,7 @@
 
 Name:		vcdimager
 Version:	2.0.1
-Release:	5
+Release:	6
 Summary:	VideoCD (pre-)mastering and ripping tool
 License:	GPL
 Group:		Video
@@ -63,14 +63,14 @@ link statically to %{name}.
 
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure --enable-static --enable-maintainer-mode
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc NEWS README

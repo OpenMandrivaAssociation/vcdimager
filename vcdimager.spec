@@ -13,6 +13,9 @@ License:	GPL
 Group:		Video
 Source0:	ftp://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
 URL:		https://www.vcdimager.org
+BuildRequires:	autoconf
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libcdio)
 BuildRequires:	popt-devel

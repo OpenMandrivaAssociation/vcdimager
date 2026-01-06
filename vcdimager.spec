@@ -16,10 +16,11 @@ URL:		https://www.vcdimager.org
 BuildRequires:	autoconf
 BuildRequires:	libtool-base
 BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libcdio)
 BuildRequires:	popt-devel
-BuildRequires:	automake1.8
+BuildRequires:	automake
 
 %description
 VCDImager allows you to create VideoCD BIN/CUE CD images from mpeg

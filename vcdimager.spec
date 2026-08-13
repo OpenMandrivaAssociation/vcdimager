@@ -12,6 +12,7 @@ Summary:	VideoCD (pre-)mastering and ripping tool
 License:	GPL
 Group:		Video
 Source0:	ftp://ftp.gnu.org/gnu/vcdimager/%{name}-%{version}.tar.gz
+Patch0:		libxml214.diff
 URL:		https://www.vcdimager.org
 BuildRequires:	autoconf
 BuildRequires:	libtool-base
